@@ -1,0 +1,87 @@
+@import url('/src/styles/reset.css');
+@import url('/src/styles/markdown.css');
+@import url('/src/styles/hljs.css');
+@import url('/src/styles/animations.css');
+@import url('/node_modules/katex/dist/katex.min.css');
+
+.card {
+  --card-horizontal-padding: 48px;
+  --card-margin-top: 100px;
+
+  padding: 32px var(--card-horizontal-padding);
+  width: min(calc(60ch + 2 * var(--card-horizontal-padding)), 75vw);
+  border-radius: 32px;
+  margin-top: var(--card-margin-top);
+  box-shadow: var(--card-box-shadow);
+  will-change: transform opacity;
+  text-align: left;
+  position: relative;
+}
+
+.card--exits {
+  position: absolute;
+  opacity: 0;
+  top: calc(var(--exit-top) - var(--card-margin-top));
+  right: var(--exit-right);
+  bottom: var(--exit-bottom);
+  left: var(--exit-left);
+}
+
+.field {
+  margin: 16px 0px;
+}
+
+img {
+  display: block;
+  max-height: 300px;
+  width: 100%;
+  object-fit: contain;
+  background: var(--img-background);
+  background-size: 2em 2em;
+  margin: 32px 0px;
+}
+
+.field--back {
+  margin-top: 32px;
+}
+
+.field--tags {
+  position: absolute;
+  top: -75px;
+  display: flex;
+  gap: 4px;
+}
+
+.tag {
+  font-size: 0.8rem;
+  background-color: var(--markdown-color-border-muted);
+  color: var(--markdown-color-fg-subtle);
+  padding: 5px 8px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.field--source {
+  position: absolute;
+  left: var(--card-horizontal-padding);
+  right: var(--card-horizontal-padding);
+  top: calc(100% + 16px);
+}
+
+.field--source a {
+  font-size: 0.8rem;
+  color: inherit;
+  opacity: 0.7;
+  text-decoration: underline;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.field--notes,
+.notes {
+  font-size: 0.7rem;
+  color: green;
+}
