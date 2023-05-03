@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import * as AnkiApi from '../src/api/anki-api.js';
+import * as AnkiApi from './api/anki-api.ts';
 
 const DIST_DIR_PATH = './dist';
 

@@ -7,7 +7,7 @@ type AnkiApiResponse<T> = {
 };
 
 const api = axios.create({
-  baseURL: 'http://localhost:8765/' || import.meta.env.ANKI_API_URL,
+  baseURL: 'http://localhost:8765/' || process.env.ANKI_API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -24,7 +24,7 @@ export async function getMediaDirPath() {
 }
 
 export async function getAllNoteTypes() {
-  const response = await api.post('/', {
+  const response = await api.post<AnkiApiResponse<string[]>>('/', {
     action: 'modelNames',
     version: 6,
   });

@@ -1,34 +1,8 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "target": "ES2022",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "lib": ["es2022", "DOM", "DOM.Iterable"],
-    "skipLibCheck": true,
-    "types": ["node", "vite/client"],
-
-    /* Bundler mode */
-    "moduleResolution": "node",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "noEmit": true,
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "strictPropertyInitialization": false,
-    "allowSyntheticDefaultImports": true
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "types": ["vite/client"]
   },
-  "ts-node": {
-    "esm": true
-  },
-  "include": [
-    "src",
-    "scripts",
-    "types/markdown-it-container.d.ts",
-    "types/markdown-it-mark.d.ts",
-    "types/markdown-it-katex.d.ts"
-  ]
+  "include": ["src/**/*.ts", "types"]
 }
