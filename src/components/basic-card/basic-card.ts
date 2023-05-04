@@ -96,6 +96,7 @@ class BasicCard extends WebComponent {
           class="field field--source animate__slide-in-bottom"
         ></section>
       </article>
+      <pomodoro-countdown />
     `;
   }
 }
