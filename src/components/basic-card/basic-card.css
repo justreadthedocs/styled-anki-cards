@@ -41,6 +41,11 @@ img {
   margin: 32px 0px;
 }
 
+.field--front-side-in-back {
+  transition: opacity 0.3s ease-in;
+  opacity: 0.3;
+}
+
 .field--back {
   margin-top: 32px;
 }

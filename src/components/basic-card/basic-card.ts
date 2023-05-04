@@ -83,7 +83,7 @@ class BasicCard extends WebComponent {
         </section>
         <section
           markdown="fieldFront"
-          class="field field--front {templateSide === 'back' ? 'animate__fade-out-03' : ''}"
+          class="field field--front {templateSide === 'back' ? 'field--front-side-in-back' : ''}"
         ></section>
         <section
           if="templateSide === 'back' && fieldBack"

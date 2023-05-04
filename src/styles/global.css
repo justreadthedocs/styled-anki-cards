@@ -99,24 +99,20 @@
   --hljs-string-color: #b5bd68;
 }
 
-div#qa {
-  width: 100%;
-  min-height: 100%;
-  padding: 0;
-  margin: 0;
-  font-size: 16px;
-}
-
 body {
   background-color: var(--markdown-color-canvas-subtle);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
+  position: relative;
 }
 
 div#qa {
-  position: relative;
+  width: 100%;
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
   display: grid;
   justify-items: center;
   align-content: flex-start;
