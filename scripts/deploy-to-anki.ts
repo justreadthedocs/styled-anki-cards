@@ -4,6 +4,7 @@ import path from 'path';
 import * as AnkiApi from './api/anki-api.ts';
 
 const DIST_DIR_PATH = './dist';
+const BOOTSTRAP_SCRIPT_PARTIAL_NAME = '__bootstrap';
 
 function removeOldFilesFrom(ankiMediaDirPath: string) {
   const files = fs.readdirSync(ankiMediaDirPath);
@@ -40,7 +41,7 @@ async function updateScriptSrcInAllNoteTypes() {
 
     for (let [cardType, templates] of Object.entries(noteTypeTemplates)) {
       for (let [cardSide, template] of Object.entries(templates)) {
-        const updatedTemplate = replaceTemplateScriptTag(
+        const updatedTemplate = replaceBootstrapScriptSrc(
           template,
           bootstrapScriptName
         );
@@ -62,7 +63,7 @@ function getBootstrapScriptName() {
   const files = fs.readdirSync(DIST_DIR_PATH);
 
   const bootstrapScriptName = files.find((file) =>
-    file.startsWith('__bootstrap-')
+    file.startsWith(BOOTSTRAP_SCRIPT_PARTIAL_NAME)
   );
 
   if (!bootstrapScriptName) {
@@ -72,17 +73,17 @@ function getBootstrapScriptName() {
   return bootstrapScriptName;
 }
 
-function replaceTemplateScriptTag(template: string, newScriptSrc: string) {
-  const scriptRegex = /<script.*?<\/script>/;
+function replaceBootstrapScriptSrc(template: string, newScriptSrc: string) {
+  const bootstrapScriptSrcRegex = new RegExp(
+    `src=['"]${BOOTSTRAP_SCRIPT_PARTIAL_NAME}[^'"]*['"]`,
+    'i'
+  );
 
-  if (!scriptRegex.test(template)) {
+  if (!bootstrapScriptSrcRegex.test(template)) {
     return template;
   }
 
-  return template.replace(
-    scriptRegex,
-    `<script type="text/javascript" src="${newScriptSrc}"></script>`
-  );
+  return template.replace(bootstrapScriptSrcRegex, `src="${newScriptSrc}"`);
 }
 
 const ankiMediaDirPath = await AnkiApi.getMediaDirPath();
