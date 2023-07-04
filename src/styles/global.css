@@ -122,3 +122,16 @@ div#qa {
 div#qa > * {
   display: inline-block;
 }
+
+.just-do-it {
+  background-image: url('/public/labeouf.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(31, 33, 36, 0.8);
+  pointer-events: none;
+}
