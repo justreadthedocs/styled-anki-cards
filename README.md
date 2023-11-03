@@ -58,3 +58,12 @@ npm run build
 ```
 
 The command puts built scripts and assets into Anki's media collection directory, and modifies _all_ note types by updating the source of the bootstrap script.
+
+## Demo
+
+![demo-screenshot-1](https://github.com/justreadthedocs/styled-anki-cards/assets/110410228/65d1a972-99f5-4dae-8906-224699c53170)
+![demo-screenshot-2](https://github.com/justreadthedocs/styled-anki-cards/assets/110410228/4727739a-b25d-4736-90cf-e68499530ef2)
+
+### Animated
+
+![demo-animation-looped](https://github.com/justreadthedocs/styled-anki-cards/assets/110410228/c592c805-ac2d-49f5-9146-7c4419830b4a)
